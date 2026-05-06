@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<script>
+    console.log(x);//undifind
+    var x = 5;
+    console.log(x);//5
+    //hoisting:
+    //var x;  
+    //console.log(x);
+    //x =5
+    //console.log(x);
+
+    //another block
+    if (true) {
+        var y = 20;
+    }
+    console.log(y);//20
+
+
+    console.log(a);//undifind
+    var a;
+    a = 3;
+    console.log(a);//3
+    // var a;
+    // console.log(a);
+    // a = 3;
+    // console.log(a);
+
+
+    //hoisting let
+    console.log(a); // error
+    let a = 10;
+    //Temporal Dead Zone (TDZ)
+    // let a;
+    // console.log(a); //undefind
+    // a = 10;
+
+    //hoisting const
+    console.log(b); //error
+    const b = 5;
+    {
+        console.log(b); //error
+        const b = 5;
+    }
+
+    //another block hoisting
+
+    let a = 2
+    {
+        console.log(a);//error
+        let a = 3
+    }
+
+
+    sayHi();//error
+
+    let sayHi = function () {
+        console.log("Hi!")
+    };
+
+
+
+    console.log(a);//undifind
+    var a = 10;
+    function test() {
+        var a;
+        console.log(a);
+        a = 5;
+    }
+    test();//undifind
+
+
+    foo();//error
+    let foo = () => {
+        console.log("foo");
+    };
+
+
+    //function
+    console.log(sum(2, 3));//5
+    function sum(a, b) {
+        return a + b;
+    }
+
+    console.log(sum2(3, 3));//error
+    let sum2 = (a, b) => {
+        return a + b;
+    }
+
+
+    if (true) {
+        var token = "Hi";
+    }
+    console.log(token);//Hi
+    if (true) {
+        let token = "Hi";
+    }
+    console.log(token);//error
+
+
+    //let , var in loop
+    for (var i = 0; i < 3; i++) {
+        setTimeout(() => {
+            console.log(i)
+        }, 1000)
+    }
+    //var i = 3
+    // setTimeout(() => {
+    //     console.log(i)
+    // }, 1000)
+    // setTimeout(() => {
+    //     console.log(i)
+    // }, 1000)
+    // setTimeout(() => {
+    //     console.log(i)
+    // }, 1000)
+    //console = 3
+
+
+    for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+            console.log(i)
+        }, 1000)
+    }
+    // setTimeout(() => {
+    //     console.log(i)
+    // }, 1000)
+    // setTimeout(() => {
+    //     console.log(i)
+    // }, 1000)
+    // setTimeout(() => {
+    //     console.log(i)
+    // }, 1000)
+    //console = 0,1,2
+
+    var x = 1;
+    function foo() {
+        console.log(x);//undifind
+        var x = 2;
+        function bar() {
+            console.log(x);//2
+        }
+        bar();
+    }
+    foo();
+</script>
+
+<body>
+
+</body>
+
+</html>

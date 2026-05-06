@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script>
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const email = document.getElementById("email");
+    const error = document.getElementById("error");
+    const form = document.getElementsByClassName("form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();//جلوگیری از رفرش شدن صفحه بعد هر عمل
+
+        if (username.value.length < 3) {
+            error.innerText = "Username is too short!";
+            return; //کد بعد از تشخیص این ارور از ادامه بررسی دست نگه دارد
+        }
+
+        if (password.value.length < 8) {
+            error.innerText = "Password is weak!";
+            return;
+        }
+        if (email.includes() !== "@gmail.com") {
+            error.innerText = "Email is not complete!";
+            return;
+        }
+        
+        error.innerText = "Form submitted successfully!";
+    });
+</script>
+
+<body>
+    <form class="form">
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <input type="email" id="email" placeholder="***@gmail.com" />
+        <button>Submit</button>
+
+        <p id="error"></p>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+//named export
+
+export const PI = 3.14159;
+
+export function add(a, b) {
+    return a + b;
+}
+
+//default export
+
+export default function sum(a, b) {
+    return a + b;
+}
+
