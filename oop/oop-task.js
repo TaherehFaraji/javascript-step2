@@ -44,3 +44,62 @@ class Rectangle {
 
 const rectangle1 = new Rectangle("10", "15");
 rectangle1.area();
+/////////////////////////////////////////////////////////
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    introduce() {
+        console.log("My name is " + this.name);
+    }
+}
+
+class Student extends Person {
+    constructor(name, major) {
+        super(name);
+        this.major = major;
+    }
+    study() {
+        console.log(this.name + " is studing " + this.major);
+    }
+}
+
+class Employee extends Person {
+    constructor(name, job) {
+        super(name);
+        this.job = job;
+    }
+    work() {
+        console.log(this.name + "'s job is " + this.job);
+    }
+}
+
+const me = new Person("Tahereh");
+me.introduce();
+const student = new Student("Zeinab", "mathematics");
+student.study();
+const employee = new Employee("Ali", "teacher");
+employee.work();
+
+class User {
+    constructor(username) {
+        this.username = username;
+    }
+    login() {
+        console.log(this.username + "  has logged in.");
+    }
+}
+class Admin extends User {
+    constructor(username, level) {
+        super(username);
+        this.level = level;
+    }
+    login() {
+        super.login();
+        console.log(this.level + " was successfully registered.");
+    }
+}
+const user = new User("Mehdi");
+user.login();
+const admin = new Admin("Arad", "content production admin");
+admin.login();
