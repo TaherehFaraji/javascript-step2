@@ -83,9 +83,9 @@ class Dog extends Animal {
     }
 }
 
-const dog1 = new Dog("max", "x");
-console.log(dog1.name);
-console.log(dog1.breed);
+const dog2 = new Dog("max", "x");
+console.log(dog2.name);
+console.log(dog2.breed);
 
 //Method Overriding
 
@@ -133,10 +133,63 @@ car1.start();
 
 //Encapsulation
 class BankAccount {
-    constructor(owner, balance) {
+    #balance;//private
+
+    constructor(owner, initialBalance) {
         this.owner = owner;
-        this.balance = balance;
+        this.#balance = initialBalance;
+    }
+    #deposit(amount) {//private
+        if (amount > 0) {
+            this.#balance += amount;
+        }
+    }
+    getBalance() {
+        return this.#balance;
     }
 }
-const account1 = new BankAccount("Tahereh", "1000");
-account1.balance = -2000;
+const account1 = new BankAccount("Tahereh", 1000);
+account1.deposit(1000);
+console.log(account1.getBalance());
+// account1.#balance //error
+
+//example
+class Parent {
+    #secret = "hidden";
+}
+
+class Child extends Parent {
+    show() {
+        //console.log(this.#secret);//error
+    }
+}
+
+//get , set
+class User {
+    #password;
+
+    constructor(user, password) {
+        this.user = user;
+        this.#password = password;
+    }
+    getPassword() {
+        return this.#password;
+    }
+    get password() {
+        return "*****";
+    }
+    set password(newPassword) {
+        if (newPassword.length >= 6) {
+            this.#password = newPassword;
+        } else {
+            console.log("Password is too short.");
+        }
+    }
+}
+
+const user = new User("Ali", 12345);
+console.log(user.password);
+user.password = "123";
+console.log(user.password);
+user.password = "1234567";
+console.log(user.password);
